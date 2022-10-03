@@ -162,26 +162,23 @@ var specialCharacters = [
 function generatePassword() {
 var options = getPasswordOptions();
     //Code Your logic Below
-    // 1) Create an array to store the types of characters to include in the password
+
+    // Created 3 arrays to store the types of characters to include in the password, the characters randomly chosen, and for final password text
     var passwordText = [];
     var possibleCharacters = [];
     var chosenCharacters = [];
-
-    // 2) Create an array to contain one of each type of chosen character to ensure each will be used
-
     
-    // 3) Create a for loop to iterate over the length of the password from the previous step
+    // Created 4 for loops to loop through each of the character types selecting random characters then push them into the chosen characters arrat
     if (options.hasSpecialCharacters) {
         possibleCharacters = possibleCharacters.concat(specialCharacters);
         chosenCharacters.push(getRandom(specialCharacters));
         }
 
-    // 4) Inside the for loop call the getRandom() function for each type of array and add the results to the makePassword array
     if (options.hasNumericCharacters) {
         possibleCharacters = possibleCharacters.concat(numericCharacters);
         chosenCharacters.push(getRandom(numericCharacters));
         }
-    // 5) Transform the makePassword into a string and pass into the writePassword() function
+
     if (options.hasLowerCasedCharacters) {
         possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
         chosenCharacters.push(getRandom(lowerCasedCharacters));
@@ -190,15 +187,24 @@ var options = getPasswordOptions();
         possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
         chosenCharacters.push(getRandom(upperCasedCharacters));
         }
-    // 6) Write password to the #password input
+
+    // Use a for loop to select random characters for the possible characters array
+
     for (var i = 0; i < options.length; i++) {
         var possibleCharacter = getRandom(possibleCharacters);
+    
+    //push random possible character to passwordText
 
         passwordText.push(possibleCharacter);
     }   
+
+    //loop through characters placing them in passwordText
+
     for (var i = 0; i < chosenCharacters.length; i++) {
         passwordText[i] = chosenCharacters[i];
     }   
+
+    //join characters together for password
 
     return passwordText.join('');
 
