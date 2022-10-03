@@ -168,7 +168,7 @@ var options = getPasswordOptions();
     var possibleCharacters = [];
     var chosenCharacters = [];
     
-    // Created 4 for loops to loop through each of the character types selecting random characters then push them into the chosen characters arrat
+    // Created 4 for loops to loop through each of the character types selecting random characters then push them into the chosen characters array
     if (options.hasSpecialCharacters) {
         possibleCharacters = possibleCharacters.concat(specialCharacters);
         chosenCharacters.push(getRandom(specialCharacters));
@@ -188,12 +188,12 @@ var options = getPasswordOptions();
         chosenCharacters.push(getRandom(upperCasedCharacters));
         }
 
-    // Use a for loop to select random characters for the possible characters array
+    // Use a for loop to select random characters from the randomly chosen characters for the possible characters array
 
     for (var i = 0; i < options.length; i++) {
         var possibleCharacter = getRandom(possibleCharacters);
     
-    //push random possible character to passwordText
+    //push random possible characters to passwordText
 
         passwordText.push(possibleCharacter);
     }   
